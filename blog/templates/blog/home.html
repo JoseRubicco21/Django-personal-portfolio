@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+{% block content %}		
+<div class="container">
+			<h1>Blogs</h1>
+			{% for blogpost in blogs %}
+			<div class="card mx-auto my-5" style="width">
+				<div class="card-body">
+					<h5 class="card-title">{{blogpost.title}}</h5>
+					<!-- |striptags removes htmltags. |safe applies htmltags-->
+					<p class="card-text">{{blogpost.description|striptags|truncatewords_html:10}}</p>
+					<a class="btn btn-primary" href={% url "blog:blogpost" blogpost.id%}>Learn More</a>
+				</div>
+				<div class="card-footer">{{blogpost.date|date:"l d, F Y "}}</div>
+			</div>
+			{% endfor %}
+		</div>
+{% endblock %}
