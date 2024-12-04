@@ -128,6 +128,6 @@ MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / MEDIA_URL
 
 try:
-    from .local_settings import * 
-except: ImportError as err:
+    from .local_settings import *
+except ImportError as err:
     print("There's no local settings file.")
